@@ -9,7 +9,7 @@
 #include "http_packer.h"
 
 int main(int argc, char** argv) {
-    struct http_packer packer;
+	struct http_packer packer;
 
 	http_packer_init(&packer, HTTP_PACKER_REQUEST);
 	http_packer_request_line(&packer, "GET", "www.baidu.com", "/", 80);
@@ -19,14 +19,13 @@ int main(int argc, char** argv) {
 	printf("REQUEST: \n%s\nEND\n\n", packer.buf);
 
 	http_packer_reset(&packer, HTTP_PACKER_RESPONSE);
-    http_packer_respone_line(&packer, 200, "OK");
-    http_packer_header(&packer, "xxx", "yyy");
+	http_packer_respone_line(&packer, 200, "OK");
+	http_packer_header(&packer, "xxx", "yyy");
 	http_packer_body(&packer, "world", strlen("world"));
-    printf("RESPONSE: \n%s\nEND\n", packer.buf);
+	printf("RESPONSE: \n%s\nEND\n", packer.buf);
 
 	http_packer_destroy(&packer);
 
-	getchar();
 }
 
 
