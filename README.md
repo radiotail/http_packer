@@ -44,7 +44,7 @@ void http_packer_body(struct http_packer* packer, const char* body, size_t body_
 
 ## EXAMPLE
 ```
-http_packer_reset(&packer, HTTP_PACKER_RESPONSE);
+http_packer_init(&packer, HTTP_PACKER_RESPONSE);
 http_packer_respone_line(&packer, 200, "OK");
 http_packer_header(&packer, "xxx", "yyy");
 http_packer_body(&packer, "world", strlen("world"));
